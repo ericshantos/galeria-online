@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+| Principal
+{% endblock %}
+
+{% block content %}
+
+<section class="hero" id="topo">
+    <div class="elemento-sobreposicao"></div>
+    <div>
+        <img src="{{ url_for('static', filename='images/logo/logo.png') }}" alt="Logo na capa">
+    </div>
+    <div class="icone-seta">
+        <a href="#conteudo">
+            <span class="material-symbols-outlined">
+                south
+            </span>
+        </a>
+    </div>
+</section>
+<section class="content" id="conteudo">
+</section>
+{% endblock %}

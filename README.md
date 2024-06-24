@@ -1,2 +1,5 @@
-# galeria-de-arte
-Projeto flask voltado a expor meus registros fotográficos na web.
+<h1 align="Center">Galeria fotográfica</h1>
+
+<br>
+
+<p align="Center">🚧 Aplicação em desenvolvimento 🚧</p>

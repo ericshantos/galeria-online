@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+| Galeria
+{% endblock %}
+
+{% block content %}
+
+<section class="hero-galeria"></section>
+<section class="content-galeria">
+
+<div class="gallery">
+    {% for image in images %}
+
+        <div class="gallery-item">
+            <img class="nao-salvar" src="{{ url_for('static', filename='images/' + image) }}" alt="fotografia">
+        </div>
+
+    {% endfor %}
+</div>
+</html>
+
+{% endblock %}
