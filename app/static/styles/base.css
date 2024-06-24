@@ -7,6 +7,13 @@ html, body {
     font-family: Arial, sans-serif;
 }
 
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
 /* Configuração do corpo e imagem de fundo */
 body {
     background-color: #000; /* Cor de fundo para quando a imagem não carregar */
@@ -198,14 +205,6 @@ input:checked ~ .menu-hamburguer-elements {
     color: rgba(185, 8, 8, 0.8);
 }
 
-/* Centraliza os links no centro do menu-hambúrguer */
-.menu-hamburguer-elements .links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translateY(-100px);
-}
-
 /* Estilos para a tag <li> com o ícone do Instagram */
 .menu-hamburguer-elements .insta-li {
     list-style: none; /* Remove os bullets */
@@ -214,7 +213,7 @@ input:checked ~ .menu-hamburguer-elements {
     align-items: flex-end; /* Alinha no fundo verticalmente */
     padding: 1rem 0; /* Espaçamento interno (ajuste conforme necessário) */
     position: relative; /* Posicionamento absoluto para ajustar no fundo */
-    bottom: -110px; /* Alinha no fundo do contêiner */
+    bottom: -160px; /* Alinha no fundo do contêiner */
     left: 0; /* Alinha à esquerda do contêiner */
     font-size: 32px;
 }
