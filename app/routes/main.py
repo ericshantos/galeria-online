@@ -29,6 +29,9 @@ def galeria() -> Response:
     # Lista de imagens no diretório estático
     images = [f for f in os.listdir(image_folder) if f.endswith(('jpg', 'jpeg', 'png', 'gif'))]
 
+    # Importe o cache localmente
+    from app import cache
+
     # Renderiza a página HTML da galeria, passando a lista de imagens como parâmetro
     return render_template('galeria.html', images=images)
 
