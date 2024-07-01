@@ -71,3 +71,101 @@ allElements.forEach(element => {
   // Define o atributo 'oncontextmenu' como 'return false;' para desabilitar o menu de contexto
   element.setAttribute('oncontextmenu', 'return false;');
 });
+
+/**
+ * Aguarda o carregamento completo do DOM antes de executar o código.
+ * Quando o DOM estiver carregado, procura por um link que leva ao conteúdo principal
+ * e adiciona um evento de clique para rolar suavemente até esse conteúdo.
+ */
+document.addEventListener("DOMContentLoaded", function() {
+    // Encontra o elemento âncora que aponta para o conteúdo principal
+    const linkScroll = document.querySelector('a[href="#conteudo"]');
+
+    // Verifica se o link de scroll foi encontrado no documento
+    if (linkScroll) {
+        // Adiciona um ouvinte de evento para o clique no link de scroll
+        linkScroll.addEventListener('click', function(event) {
+            // Impede o comportamento padrão de seguir o link
+            event.preventDefault();
+
+            // Obtém o ID do elemento alvo removendo o primeiro caractere (#)
+            const targetId = this.getAttribute('href').substring(1);
+
+            // Encontra o elemento alvo no DOM com base no ID obtido
+            const targetElement = document.getElementById(targetId);
+
+            // Verifica se o elemento alvo foi encontrado no documento
+            if (targetElement) {
+                // Define um valor de deslocamento (offset) para ajuste fino do scroll
+                const offset = 80; // Ajuste conforme necessário
+
+                // Calcula a posição final de scroll para o elemento alvo
+                const targetPosition = targetElement.offsetTop - offset;
+
+                // Realiza um scroll suave até a posição calculada do elemento alvo
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth' // Define o comportamento de scroll como suave
+                });
+            }
+        });
+    }
+});
+
+/**
+ * Função principal que adiciona comportamentos dinâmicos ao ícone do menu hambúrguer.
+ * Utiliza eventos como clique no checkbox e interações do mouse para alterar classes CSS.
+ * 
+ * @event DOMContentLoaded - Disparado quando o documento HTML foi completamente carregado e analisado.
+ */
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Seleciona o elemento do ícone do menu hambúrguer
+    const hamburguer = document.querySelector('.hamburguer');
+    
+    // Seleciona o elemento checkbox responsável pelo menu hambúrguer
+    const checkbox = document.getElementById('menu-hamburguer');
+
+    /**
+     * Adiciona um listener para o evento de mudança (change) no checkbox.
+     * Atualiza dinamicamente as classes CSS do ícone do menu hambúrguer dependendo do estado do checkbox.
+     * 
+     * @event change
+     */
+    checkbox.addEventListener('change', () => {
+        if (checkbox.checked) {
+            hamburguer.classList.add('hamburguer-open');   // Adiciona classe para ícone aberto
+            hamburguer.classList.remove('hamburguer-closed'); // Remove classe para ícone fechado
+        } else {
+            hamburguer.classList.add('hamburguer-closed'); // Adiciona classe para ícone fechado
+            hamburguer.classList.remove('hamburguer-open'); // Remove classe para ícone aberto
+        }
+    });
+
+    /**
+     * Adiciona um listener para o evento de passagem do mouse sobre o ícone do menu hambúrguer.
+     * Altera dinamicamente as classes CSS do ícone do menu hambúrguer com base no estado do checkbox.
+     * 
+     * @event mouseover
+     */
+    hamburguer.addEventListener('mouseover', () => {
+        if (checkbox.checked) {
+            hamburguer.classList.add('hamburguer-hover-open');   // Adiciona classe para ícone aberto com mouseover
+            hamburguer.classList.remove('hamburguer-hover-closed'); // Remove classe para ícone fechado com mouseover
+        } else {
+            hamburguer.classList.add('hamburguer-hover-closed'); // Adiciona classe para ícone fechado com mouseover
+            hamburguer.classList.remove('hamburguer-hover-open'); // Remove classe para ícone aberto com mouseover
+        }
+    });
+
+    /**
+     * Adiciona um listener para o evento de remoção do mouse de cima do ícone do menu hambúrguer.
+     * Remove as classes CSS adicionadas durante o hover do mouse.
+     * 
+     * @event mouseout
+     */
+    hamburguer.addEventListener('mouseout', () => {
+        hamburguer.classList.remove('hamburguer-hover-open');    // Remove classe para ícone aberto com mouseout
+        hamburguer.classList.remove('hamburguer-hover-closed');  // Remove classe para ícone fechado com mouseout
+    });
+});
+

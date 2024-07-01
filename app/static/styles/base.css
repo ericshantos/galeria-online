@@ -112,10 +112,11 @@ header.scrolled .menu {
     top: 0; /* Novo posicionamento do logo quando rolado */
 }
 
+/* Cor inicial do ícone */
 .hamburguer {
     position: relative;
     display: block;
-    background: #fff;
+    background: #ffffff; /* Branco por padrão */
     width: 30px;
     height: 2px;
     transition: 0.5s ease-in-out;
@@ -123,7 +124,7 @@ header.scrolled .menu {
 
 .hamburguer:before,
 .hamburguer:after {
-    background: #fff;
+    background: #ffffff; /* Branco por padrão */
     content: '';
     display: block;
     width: 100%;
@@ -140,8 +141,24 @@ header.scrolled .menu {
     bottom: -10px;
 }
 
-input {
-    display: none;
+/* Cor do ícone ao passar o mouse (fechado) */
+.menu-hamburger input:not(:checked) + label .menu:hover .hamburguer {
+    background: rgb(199, 213, 7);
+}
+
+.menu-hamburger input:not(:checked) + label .menu:hover .hamburguer:before,
+.menu-hamburger input:not(:checked) + label .menu:hover .hamburguer:after {
+    background: rgb(199, 213, 7);
+}
+
+/* Cor do ícone ao passar o mouse (aberto) */
+.menu-hamburger input:checked + label .menu:hover .hamburguer {
+    background: #000000;
+}
+
+.menu-hamburger input:checked + label .menu:hover .hamburguer:before,
+.menu-hamburger input:checked + label .menu:hover .hamburguer:after {
+    background: #000000;
 }
 
 /* rotação dos elementos do span */
@@ -181,6 +198,10 @@ input:checked ~ .menu-hamburguer-elements {
     right: 0;
 }
 
+input[type="checkbox"] {
+    display: none; /* Esconde o checkbox */
+}
+
 /* Estilos dos itens do menu */
 .menu-hamburguer-elements li {
     list-style: none;
@@ -213,7 +234,7 @@ input:checked ~ .menu-hamburguer-elements {
     align-items: flex-end; /* Alinha no fundo verticalmente */
     padding: 1rem 0; /* Espaçamento interno (ajuste conforme necessário) */
     position: relative; /* Posicionamento absoluto para ajustar no fundo */
-    bottom: -160px; /* Alinha no fundo do contêiner */
+    bottom: -100px; /* Alinha no fundo do contêiner */
     left: 0; /* Alinha à esquerda do contêiner */
     font-size: 32px;
 }
