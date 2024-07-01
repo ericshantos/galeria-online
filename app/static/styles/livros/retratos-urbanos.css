@@ -1,0 +1,14 @@
+/* Seção de herói cobrindo a viewport */
+.hero-retratos-urbanos {
+    width: 100%;
+    height: 100vh; /* Ocupa 100% da altura da viewport */
+    background-image: url('../../images/capa/capa-retratos-urbanos.jpg'); /* Imagem de fundo */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Seção de conteúdo */
+.conteudo-retratos-urbanos {
+    padding: 20px;
+    background: white;
+}
