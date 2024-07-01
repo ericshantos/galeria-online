@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/base.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/geleria.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/livros/retratos-urbanos.css') }}">
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -37,6 +38,9 @@
                 </li>
                 <li>
                     <a href="{{ url_for('main.contato') }}">Contato</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('livros.retratos_urbanos') }}">Livros</a>
                 </li>
                 <li class="insta-li">
                     <a href="https://www.instagram.com/_tireifoto?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
