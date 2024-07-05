@@ -23,23 +23,31 @@
 <section class="conteudo" id="conteudo">
     <div class="contador-historia">
         <p>
-            Gosto de pensar que conto história, sem ao menos proferir uma palavra sequer.
+            Coleção eric.png
         </p>
     </div>
 </section>
 <section class="section-vitrine">
-    <div class="vitrine">
-        {% for image in range(25) %}
-        <div class="imagem">
-            <img src="{{ url_for('static', filename='images/testando.webp') }}" alt="fotografia">
-            <div class="sobreposicao-imagem">
-                <h4>Sem categoria</h4>
-                <p>
-                    Grade de fotos sendo testada.
-                </p>
+    <div class="ver-mais">
+        <div class="vitrine">
+            {% for image in images %}
+            <div class="imagem">
+                <img src="{{ url_for('static', filename='images/' + image) }}" alt="fotografia">
+                <div class="sobreposicao-imagem">
+                    <h4>Sem categoria</h4>
+                    <p>
+                        Grade de fotos sendo testada.
+                    </p>
+                </div>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
+    <button class="ver-mais-btn" onclick="expandirVitrine()">
+        <span>Ver mais</span>
+        <div class="linha-preta"></div>
+    </button>
 </section>
+
+
 {% endblock %}
