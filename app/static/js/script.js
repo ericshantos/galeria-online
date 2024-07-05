@@ -169,3 +169,54 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 
+/**
+ * Função para expandir ou reduzir a altura da vitrine de imagens.
+ * Quando o botão é clicado, a altura da vitrine aumenta em 10vh. 
+ * Se todas as imagens já estiverem visíveis, a altura é resetada para o valor inicial e o texto do botão muda para "Ver menos".
+ */
+function expandirVitrine() {
+    // Seleciona a div com a classe 'ver-mais'
+    var verMaisDiv = document.querySelector('.ver-mais');
+
+    // Seleciona o botão 'ver mais'
+    var verMaisBtn = document.querySelector('.ver-mais-btn');
+
+    // Seleciona o span dentro do botão 'ver mais'
+    var verMaisSpan = document.querySelector('.ver-mais-btn span');
+
+    // Obtém a altura atual da div 'ver-mais' em pixels
+    var currentHeight = parseFloat(getComputedStyle(verMaisDiv).height);
+
+    // Calcula a altura inicial da div 'ver-mais' em pixels (90vh)
+    var initialHeight = window.innerHeight * 0.9;
+
+    // Converte 1vh para pixels
+    var vhToPixels = window.innerHeight / 100;
+
+    // Calcula a nova altura adicionando 30vh à altura atual
+    var newHeight = currentHeight + (30 * vhToPixels);
+
+    // Obtém a altura total do conteúdo da vitrine
+    var vitrineHeight = verMaisDiv.scrollHeight;
+
+    // Verifica se a altura atual é menor que a altura total do conteúdo
+    if (currentHeight < vitrineHeight) {
+        // Define a nova altura da div 'ver-mais'
+        verMaisDiv.style.height = `${newHeight}px`;
+
+        // Verifica se a nova altura é maior ou igual à altura total do conteúdo
+        if (newHeight >= vitrineHeight) {
+            // Altera o texto do botão para "Ver menos" e adiciona a classe 'less'
+            verMaisSpan.textContent = "Ver menos";
+            verMaisBtn.classList.add('less');
+        }
+    } else {
+        // Reseta a altura da div 'ver-mais' para a altura inicial
+        verMaisDiv.style.height = `${initialHeight}px`;
+
+        // Altera o texto do botão de volta para "Ver mais" e remove a classe 'less'
+        verMaisSpan.textContent = "Ver mais";
+        verMaisBtn.classList.remove('less');
+    }
+}
+

@@ -12,7 +12,7 @@
 /* Seção de conteúdo */
 .conteudo {
     width: 100%;
-    height: 40vh;
+    height: 30vh;
     background-color: white;
     background-size: cover;
     background-position: center;
@@ -68,6 +68,12 @@
     background-color: white;
 }
 
+.ver-mais {
+    height: 90vh; /* Altura inicial da seção */
+    overflow: hidden;
+    transition: height 0.5s ease; /* Transição suave para alterações de altura */
+}
+
 .vitrine {
     column-count: 5;
     column-gap: 5px;
@@ -81,8 +87,8 @@
 }
 
 .imagem {
-    break-inside: avoid;   /* Evita quebras de coluna dentro dos itens */
-    margin-bottom: 5px;   /* Espaço abaixo de cada item */
+    break-inside: avoid;
+    margin-bottom: 5px;
     position: relative;
 }
 
@@ -101,18 +107,54 @@
     justify-content: flex-end;
     align-items: flex-start;
     text-align: left;
-    padding: 20px; /* Espaçamento interno */
+    padding: 20px;
 }
 
 .sobreposicao-imagem h4 {
-    margin-bottom: 10px; /* Espaço abaixo do título */
+    margin-bottom: 10px;
 }
 
 .sobreposicao-imagem p {
-    margin-bottom: 10px; /* Espaço abaixo do parágrafo */
+    margin-bottom: 10px;
 }
 
 .imagem:hover .sobreposicao-imagem {
     opacity: 1;
 }
 
+.ver-mais-btn {
+    display: block;
+    margin: 20px auto;
+    width: 9%;
+    height: auto;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    position: relative;
+    text-align: right;
+    overflow: hidden;
+}
+
+.ver-mais-btn span {
+    display: inline-block;
+    transition: transform 0.2s ease;
+    transform: translateX(0%);
+}
+
+.ver-mais-btn:hover span {
+    transform: translateX(-70%);
+}
+
+.ver-mais-btn.less:hover span {
+    transform: translateX(-40%);
+}
+
+.linha-preta {
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    margin-top: 5px;
+}
