@@ -3,6 +3,15 @@ from flask import Blueprint, render_template, current_app, Response
 
 bp = Blueprint('main', __name__)
 
+def buscar_imagens():
+
+    # Diretório das imagens estáticas
+    image_folder = os.path.join(current_app.root_path, 'static', 'images')
+
+    # Lista de imagens no diretório estático
+    images = [f for f in os.listdir(image_folder) if f.endswith(('jpg', 'jpeg', 'png', 'gif'))]
+
+    return images
 
 @bp.route('/')
 def index() -> Response:
@@ -13,7 +22,7 @@ def index() -> Response:
         Response: Objeto de resposta Flask contendo a página HTML inicial.
     """
     # Renderiza a página HTML inicial
-    return render_template('index.html')
+    return render_template('index.html', images=buscar_imagens())
 
 @bp.route('/galeria')
 def galeria() -> Response:
@@ -23,17 +32,11 @@ def galeria() -> Response:
     Retorna:
         Response: Objeto de resposta Flask contendo a página HTML da galeria.
     """
-        # Diretório das imagens estáticas
-    image_folder = os.path.join(current_app.root_path, 'static', 'images')
-
-    # Lista de imagens no diretório estático
-    images = [f for f in os.listdir(image_folder) if f.endswith(('jpg', 'jpeg', 'png', 'gif'))]
-
     # Importe o cache localmente
     from app import cache
 
     # Renderiza a página HTML da galeria, passando a lista de imagens como parâmetro
-    return render_template('galeria.html', images=images)
+    return render_template('galeria.html', images=buscar_imagens())
 
 from flask import Blueprint, render_template, Response
 

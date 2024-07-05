@@ -1,5 +1,6 @@
 from flask import Flask
 from .routes import main, livros
+from flask_pymongo import PyMongo
 from .utils.helpers import injetar_ano
 from flask_caching import Cache
 

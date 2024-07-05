@@ -14,11 +14,6 @@ html, body {
     box-sizing: border-box;
 }
 
-/* Configuração do corpo e imagem de fundo */
-body {
-    background-color: #000; /* Cor de fundo para quando a imagem não carregar */
-}
-
 html {
     scroll-behavior: smooth;
 }
